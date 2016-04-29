@@ -3,21 +3,6 @@
  * 
  * Copyright 2016 graf <graf@chillosphere.spacepotato>
  * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
  * 
  */
 import java.util.Random;
@@ -35,11 +20,34 @@ public class CoinToss {
 			}
 	}
 	
+	public void averageTosses(int x){
+		
+		int heads = 0;
+		int tails = 0;
+		int total = 0;
+		
+		for (int q = 1; q <= x; q++){
+			double shinyCoin = Math.random();
+			if (shinyCoin <= .5){
+				heads++;
+				total++;
+				}
+			else{
+				tails++;
+				total++;
+				}	
+			}
+			System.out.println("Total heads: " + heads);
+			System.out.println("Total tails: " + tails);
+			System.out.println();
+			System.out.println("Percent heads: " + ((heads / total) * 100));
+			System.out.println("Percent tails: " + ((tails / total) * 100));
+		}
+	
 	public static void main (String args[]) {
 		
 		CoinToss demo = new CoinToss();
-		demo.theToss();
-		System.out.println(outcome);
+		demo.averageTosses(6);
 		
 		
 	}
